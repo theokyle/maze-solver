@@ -25,11 +25,23 @@ class Cell ():
             line = Line(p1, p2)
             self.__win.draw_line(line)
         if self.has_top_wall:
-            line = Line(p2, p3)
+            line = Line(p1, p4)
             self.__win.draw_line(line)
         if self.has_right_wall:
-            line = Line(p3, p4)
+            line = Line(p4, p3)
             self.__win.draw_line(line)
         if self.has_bottom_wall:
-            line = Line(p4, p1)
+            line = Line(p2, p3)
             self.__win.draw_line(line)
+
+    def draw_move(self, to_cell, undo=False):
+        if not undo:
+            fill_color = "red"
+        else:
+            fill_color = "gray"
+        
+        p1 = Point(((self.__x1 + self.__x2) / 2), ((self.__y1 + self.__y2) / 2))
+        p2 = Point(((to_cell.__x1 + to_cell.__x2) / 2), ((to_cell.__y1 + to_cell.__y2) / 2))
+        line = Line(p1, p2)
+        self.__win.draw_line(line)
+
