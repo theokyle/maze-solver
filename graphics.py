@@ -20,7 +20,7 @@ class Window ():
         print("Window Closed...")
 
     def close(self):
-        self.running = False
+        self.__running = False
 
     def draw_line(self, line, fill_color = "black"):
         line.draw(self.__canvas, fill_color)
